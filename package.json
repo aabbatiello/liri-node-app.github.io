@@ -1,0 +1,25 @@
+{
+  "name": "liri-node-app.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "key.js",
+  "dependencies": {
+    "node-spotify-api": "^1.0.5",
+    "request": "^2.81.0",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aabbatiello/liri-node-app.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aabbatiello/liri-node-app.github.io/issues"
+  },
+  "homepage": "https://github.com/aabbatiello/liri-node-app.github.io#readme"
+}
