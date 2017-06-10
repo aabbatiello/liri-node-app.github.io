@@ -29,9 +29,13 @@ if (action === "my-tweets") {
 	spotifythissong();
 
 }else if (action === "movie-this"){
-	 console.log("movie")
+	console.log("movie")
 
-	moviethis();
+  if (value) {
+      moviethis();
+  } else {
+      moviethis(value = "Mr. Nobody");
+  }
 
 }else if (action === "do-what-it-says"){
  	console.log("dowhatitsays")
@@ -88,15 +92,11 @@ spotify.search({ type: 'track', query: value }, function(err, data) {
 //Request -wrap in a function 
 //Replace movie name with a variable = to value
 function moviethis() {
-request('http://www.omdbapi.com/?t=value&apikey=40e9cece', function (error, response, body) {
+request('http://www.omdbapi.com/?t=' + value + '&apikey=40e9cece', function (error, response, body) {
   //console.log('error:', error); // Print the error if one occurred 
   //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
   //console.log('body:', body); // Print the HTML for the Google homepage. 
- if (value) {
-            moviethis();
-        } else {
-            moviethis(value = "Mr. Nobody");
-        }
+
 
         var movieObject = JSON.parse(body);
         console.log("the title is ", movieObject.Title);
@@ -109,4 +109,4 @@ request('http://www.omdbapi.com/?t=value&apikey=40e9cece', function (error, resp
     });
 };
 
-moviethis();
+//moviethis();
