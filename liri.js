@@ -73,14 +73,14 @@ spotify.search({ type: 'track', query: value }, function(err, data) {
 //The song's name
 //A preview link of the song from Spotify
 //The album that the song is from
-else {
+	else {
             var spotifydata = data.tracks.items[0];
             console.log("the artist is", spotifydata.artists[0].name);
             console.log("the song name is", spotifydata.name);
-            console.log("the album is called", spotifydata.album.name);
             console.log("here is a preview link", spotifydata.preview_url);
-	}
-});
+            console.log("the album is called", spotifydata.album.name);
+		 }
+	});
 
 }
 
@@ -88,13 +88,25 @@ else {
 //Request -wrap in a function 
 //Replace movie name with a variable = to value
 function moviethis() {
-request('http://www.omdbapi.com/?t=The+Matrix&apikey=40e9cece', function (error, response, body) {
-  console.log('error:', error); // Print the error if one occurred 
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
-  console.log('body:', body); // Print the HTML for the Google homepage. 
-	});
-}
+request('http://www.omdbapi.com/?t=value&apikey=40e9cece', function (error, response, body) {
+  //console.log('error:', error); // Print the error if one occurred 
+  //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
+  //console.log('body:', body); // Print the HTML for the Google homepage. 
+ if (value) {
+            moviethis();
+        } else {
+            moviethis(value = "Mr. Nobody");
+        }
 
+        var movieObject = JSON.parse(body);
+        console.log("the title is ", movieObject.Title);
+        console.log("the year is ", movieObject.Year);
+        console.log("the IMDB Rating is ", movieObject.imdbRating);
+        console.log("the country is ", movieObject.Country);
+        console.log("the language is ", movieObject.Language);
+        console.log("the plot is ", movieObject.Plot);
+        console.log("the actors are ", movieObject.Actors);
+    });
+};
 
-
-
+moviethis();
